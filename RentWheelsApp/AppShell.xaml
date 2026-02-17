@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="RentWheelsApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:RentWheelsApp"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar>
+        <Tab Title="Vehicles" Icon="cars.svg">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:VehicleInventoryPage}"
+                Route="VehicleInventoryPage" />
+            
+        </Tab>
+        <Tab Title="Rentals" Icon="rentals.svg">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:RentalPage}"
+                Route="RentalPage" />
+        </Tab>
+    </TabBar>
+
+</Shell>
