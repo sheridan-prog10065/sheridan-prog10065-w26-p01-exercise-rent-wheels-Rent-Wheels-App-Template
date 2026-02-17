@@ -1,4 +1,6 @@
-﻿namespace RentWheelsApp;
+﻿using RentWheelsApp.BusinessLogic;
+
+namespace RentWheelsApp;
 
 public partial class RentalPage : ContentPage
 {
