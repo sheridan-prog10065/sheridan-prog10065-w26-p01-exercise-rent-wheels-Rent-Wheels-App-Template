@@ -58,7 +58,7 @@ public class Vehicle
 
 	public override string ToString()
 	{
-		return $"{_make}: {_mileage}, {_passengerCapacity}, {_licensePlate}";
+		return $"{_make}: {_licensePlate} with {_mileage} km, and {_passengerCapacity} passengers.";
 	}
 
 	public decimal CalculateRentalCost(Rental contract)
