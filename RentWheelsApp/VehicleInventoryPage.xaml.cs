@@ -35,4 +35,14 @@ public partial class VehicleInventoryPage : ContentPage
 		//Add the vehicle objec to the vehicle inventory in the rental shop
 		_rentalShop.Vehicles.Add(vehicle);
 	}
+
+	private void OnClear(object sender, EventArgs e)
+	{
+		//Use the empty string or the String.Empty constant
+		_pckVehicleType.SelectedItem = null;
+		_txtMake.Text = "";
+		_txtMileage.Text = "";
+		_txtLicensePlate.Text = string.Empty;
+		_txtPassengerCapacity.Text = string.Empty;
+	}
 }
