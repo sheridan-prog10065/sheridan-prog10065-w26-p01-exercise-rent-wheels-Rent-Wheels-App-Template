@@ -17,4 +17,22 @@ public partial class VehicleInventoryPage : ContentPage
 		//by the InitiliateComponent() call above
 		_lstVehicleInventory.ItemsSource = rentalShop.Vehicles;
 	}
+
+	private void OnAddVehicle(object sender, EventArgs e)
+	{
+		//Read all the vehicle properties that the user has entered
+		string make = _txtMake.Text;
+		byte passCapacity = byte.Parse(_txtPassengerCapacity.Text);
+		double mileage = double.Parse(_txtMileage.Text);
+		string licensePlate = _txtLicensePlate.Text;
+
+		//Create a vehicle object and fill it with the user data
+		Vehicle vehicle = new Vehicle(make);
+		vehicle.Mileage = mileage;
+		vehicle.PassengerCapacity = passCapacity;
+		vehicle.LicencePlate = licensePlate;
+
+		//Add the vehicle objec to the vehicle inventory in the rental shop
+		_rentalShop.Vehicles.Add(vehicle);
+	}
 }
