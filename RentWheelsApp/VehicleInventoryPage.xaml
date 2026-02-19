@@ -43,7 +43,7 @@
                 Margin="{OnPlatform Default='0, 0, 0, 80', 
                                     iOS='0, 0, 0, 30', 
                                     Android='0, 0, 0, 10'}">
-            <CollectionView HorizontalOptions="Fill" />
+            <CollectionView x:Name="_lstVehicleInventory" HorizontalOptions="Fill" />
         </Border>
         
     </Grid>

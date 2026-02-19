@@ -55,6 +55,12 @@ public class Vehicle
 	#endregion
 
 	#region Methods
+
+	public override string ToString()
+	{
+		return $"{_make}: {_mileage}, {_passengerCapacity}, {_licensePlate}";
+	}
+
 	public decimal CalculateRentalCost(Rental contract)
 	{
 		//TODO: Implement the rental cost calculation

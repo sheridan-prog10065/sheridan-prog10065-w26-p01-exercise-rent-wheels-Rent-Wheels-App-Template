@@ -12,5 +12,9 @@ public partial class VehicleInventoryPage : ContentPage
 		_rentalShop = rentalShop;
 		
 		InitializeComponent();
+		
+		//Bind the list of vehicles to the collection view AFTER it has been initialized
+		//by the InitiliateComponent() call above
+		_lstVehicleInventory.ItemsSource = rentalShop.Vehicles;
 	}
 }

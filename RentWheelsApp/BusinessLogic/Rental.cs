@@ -9,4 +9,52 @@ namespace RentWheelsApp.BusinessLogic;
 /// </summary>
 public struct Rental
 {
+    #region Fields
+
+    private DateTime _startDate;
+    private DateTime _endDate;
+    private Vehicle _vehicle;
+
+    #endregion
+
+    #region Constructors
+
+    public Rental(Vehicle vehicle, DateTime startDate, DateTime endDate)
+    {
+        _vehicle = vehicle;
+        _startDate = startDate;
+        _endDate = endDate;
+    }
+
+    #endregion
+
+    #region Properties
+
+    public DateTime StartDate
+    {
+        get { return _startDate; }
+        set { _startDate = value; }
+    }
+
+    public DateTime EndDate
+    {
+        get { return _endDate; }
+        set { _endDate = value; }
+    }
+
+    public TimeSpan Duration
+    {
+        get { return _endDate - _startDate; }
+    }
+
+    public Vehicle Vehicle
+    {
+        get { return _vehicle; }
+    }
+
+    #endregion
+
+    #region Methods
+    //No methods yet
+    #endregion
 }
