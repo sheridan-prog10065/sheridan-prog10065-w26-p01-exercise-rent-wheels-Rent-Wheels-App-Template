@@ -11,10 +11,10 @@ public class Vehicle
 {
 	#region Fields
 
-	private string _make;
-	private double _mileage;
-	private byte _passengerCapacity;
-	private string _licensePlate;
+	protected string _make;
+	protected double _mileage;
+	protected byte _passengerCapacity;
+	protected string _licensePlate;
 
 	#endregion
 
@@ -61,7 +61,7 @@ public class Vehicle
 		return $"{_make}: {_licensePlate} with {_mileage} km, and {_passengerCapacity} passengers.";
 	}
 
-	public decimal CalculateRentalCost(Rental contract)
+	public virtual decimal CalculateRentalCost(Rental contract)
 	{
 		//TODO: Implement the rental cost calculation
 		return 0m;
