@@ -27,6 +27,8 @@ public partial class RentalPage : ContentPage
 
         //Use the user input to create a rental struct
         Rental contract = new Rental(selectedVehicle, startDate, endDate);
+        //TODO: calculate the price of the rental using the CalculateRentalCost
+        //method of the vehicle and set it in the contract
 
         //Add the rental contract to the list of rentals
         _rentalShop.Rentals.Add(contract);
