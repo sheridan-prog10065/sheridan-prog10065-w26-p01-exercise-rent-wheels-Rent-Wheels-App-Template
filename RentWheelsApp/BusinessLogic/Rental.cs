@@ -52,9 +52,12 @@ public struct Rental
         get { return _vehicle; }
     }
 
-    #endregion
+	#endregion
 
-    #region Methods
-    //No methods yet
+	#region Methods
+	public override string ToString()
+	{
+        return $"{_vehicle.LicencePlate} rented for {this.Duration.Days} day(s), from {_startDate.ToShortDateString()} to {_endDate.ToShortDateString()}";
+	}
     #endregion
 }
