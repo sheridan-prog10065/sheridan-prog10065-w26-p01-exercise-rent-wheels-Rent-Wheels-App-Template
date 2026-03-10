@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace RentWheelsApp.BusinessLogic;
+namespace RentWheelsLibrary;
 
 public class SpeedyRentalShop
 { 

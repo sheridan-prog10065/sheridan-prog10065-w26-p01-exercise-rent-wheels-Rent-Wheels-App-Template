@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RentWheelsApp.BusinessLogic;
+namespace RentWheelsLibrary;
 
 /// <summary>
 /// Represents a rental agreement for renting a given vehicle for a given duration

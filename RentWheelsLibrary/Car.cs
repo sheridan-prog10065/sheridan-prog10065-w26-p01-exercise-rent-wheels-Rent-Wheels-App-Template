@@ -1,4 +1,4 @@
-namespace RentWheelsApp.BusinessLogic;
+namespace RentWheelsLibrary;
 
 /// <summary>
 /// Represents a car that derives from vehicle and calculates rental cost based on duration and a luxary car premium

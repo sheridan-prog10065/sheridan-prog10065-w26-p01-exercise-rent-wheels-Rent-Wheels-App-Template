@@ -1,4 +1,4 @@
-﻿using RentWheelsApp.BusinessLogic;
+﻿using RentWheelsLibrary;
 
 namespace RentWheelsApp;
 

@@ -2,4 +2,5 @@
   <Project Path="RentWheelsApp/RentWheelsApp.csproj">
     <Deploy Solution="Debug|*" />
   </Project>
+  <Project Path="RentWheelsLibrary/RentWheelsLibrary.csproj" Id="02f9fac1-16da-4094-812a-06c207f8b126" />
 </Solution>

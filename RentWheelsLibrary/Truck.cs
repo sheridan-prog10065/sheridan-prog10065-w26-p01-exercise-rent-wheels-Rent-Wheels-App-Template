@@ -1,4 +1,4 @@
-namespace RentWheelsApp.BusinessLogic;
+namespace RentWheelsLibrary;
 
 /// <summary>
 /// Represents a Truck that derives from Vehicle and calculates rental cost based on rental duration and payload

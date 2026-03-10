@@ -1,4 +1,4 @@
-namespace RentWheelsApp.BusinessLogic;
+namespace RentWheelsLibrary;
 
 /// <summary>
 /// Represents a van that derives from a generic vehicle and calculates rental cost based on passenger capacity

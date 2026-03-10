@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RentWheelsApp.BusinessLogic;
+namespace RentWheelsLibrary;
 
 /// <summary>
 /// Represents a generic vehicle, the base class for all vehicle types supported by the app
