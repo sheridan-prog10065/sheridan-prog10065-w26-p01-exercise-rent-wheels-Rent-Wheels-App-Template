@@ -18,20 +18,18 @@ public partial class RentalPage : ContentPage
         
     }
 
-	private void OnCreateRental(object sender, EventArgs e)
+	private async void OnCreateRental(object sender, EventArgs e)
 	{
         //Read the input from the user
         DateTime startDate = (DateTime)_dtpStartDate.Date;
         DateTime endDate = (DateTime)_dtpEndDate.Date;
         Vehicle selectedVehicle = (Vehicle)_lstVehicleInventory.SelectedItem;
 
-        //Use the user input to create a rental struct
-        Rental contract = new Rental(selectedVehicle, startDate, endDate);
-        //TODO: calculate the price of the rental using the CalculateRentalCost
-        //method of the vehicle and set it in the contract
+        //Process the user input to rent the selected vehicle
+        _rentalShop.RentVehicle(selectedVehicle, startDate, endDate);
 
-        //Add the rental contract to the list of rentals
-        _rentalShop.Rentals.Add(contract);
+        //Confirm the rental to the user
+        await DisplayAlertAsync("Speedy Rentals", $"Your {selectedVehicle.Make} will be ready on {startDate:D}", "OK");
 
-	}
+    }
 }
