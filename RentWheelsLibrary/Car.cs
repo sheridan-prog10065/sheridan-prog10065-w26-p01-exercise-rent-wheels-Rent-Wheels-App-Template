@@ -4,7 +4,7 @@ namespace RentWheelsLibrary;
 /// Represents a car that derives from vehicle and calculates rental cost based on duration and a luxary car premium
 /// for luxary car makes
 /// </summary>
-public class Car: Vehicle
+internal class Car: Vehicle
 {
     private const decimal PRICE_PER_DAY = 29.99m;
     private const double LUXARY_PREMIUM_FACTOR = 1.25;
