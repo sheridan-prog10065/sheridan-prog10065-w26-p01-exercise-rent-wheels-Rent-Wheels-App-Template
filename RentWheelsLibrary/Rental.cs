@@ -14,7 +14,7 @@ public struct Rental
     private DateTime _startDate;
     private DateTime _endDate;
     private Vehicle _vehicle;
-    //TODO: add a price field variable
+    private decimal _price;
 
     #endregion
 
@@ -25,7 +25,8 @@ public struct Rental
         _vehicle = vehicle;
         _startDate = startDate;
         _endDate = endDate;
-    }
+        _price = 0m;
+	}
 
     #endregion
 
@@ -43,7 +44,17 @@ public struct Rental
         set { _endDate = value; }
     }
 
-    //TODO: add a price property
+    public decimal Price
+    {
+        get
+        {
+            return _price;
+        }
+        set
+        {
+            _price = value;
+        }
+    }
 
     public TimeSpan Duration
     {
@@ -61,7 +72,7 @@ public struct Rental
 	public override string ToString()
 	{
         //TODO: include the price property in the string output
-        return $"{_vehicle.LicencePlate} rented for {this.Duration.Days} day(s), from {_startDate.ToShortDateString()} to {_endDate.ToShortDateString()}";
+        return $"{_vehicle.LicencePlate} rented for {this.Duration.Days} day(s), from {_startDate.ToShortDateString()} to {_endDate.ToShortDateString()} for {_price} CAD";
 	}
     #endregion
 }
