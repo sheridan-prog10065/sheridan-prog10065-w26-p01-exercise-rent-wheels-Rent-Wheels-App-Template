@@ -11,7 +11,7 @@ internal class Truck : Vehicle
     {
     }
 
-    public decimal CalculateRentalCost(Rental contract)
+    public override decimal CalculateRentalCost(Rental contract)
     {
         //TODO: incorporate payload as a new attribute to determine the rental cost
         return PRICE_PER_DAY * contract.Duration.Days;

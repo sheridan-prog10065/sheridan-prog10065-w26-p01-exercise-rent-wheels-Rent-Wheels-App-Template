@@ -47,7 +47,7 @@ public class SpeedyRentalShop
 	private void CreateDefaultVehicles()
 	{
 		//Create first default vehicle and add to list
-		Vehicle carOne = new Vehicle("Generic");
+		Vehicle carOne = new Car("Toyota");
 		carOne.Mileage = 10000;
 		carOne.PassengerCapacity = 5;
 		carOne.LicencePlate = "ABC 1234";
@@ -92,7 +92,7 @@ public class SpeedyRentalShop
 
 			default:
 				Debug.Assert(false, "Unknown vehicle type");
-				return new Vehicle(make);
+				return null;
 		}
 	}
 

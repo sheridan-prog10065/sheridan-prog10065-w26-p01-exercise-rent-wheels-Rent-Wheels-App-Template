@@ -12,7 +12,7 @@ internal class Van : Vehicle
     {
     }
 
-    public decimal CalculateRentalCost(Rental contract)
+    public override decimal CalculateRentalCost(Rental contract)
     {
         //Vans have large size premium factor applied for a large passenger capacity 
         if (_passengerCapacity > 6)

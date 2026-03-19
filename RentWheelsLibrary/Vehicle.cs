@@ -7,7 +7,7 @@ namespace RentWheelsLibrary;
 /// <summary>
 /// Represents a generic vehicle, the base class for all vehicle types supported by the app
 /// </summary>
-public class Vehicle
+public abstract class Vehicle
 {
 	#region Fields
 
@@ -61,10 +61,7 @@ public class Vehicle
 		return $"{_make}: {_licensePlate} with {_mileage} km, and {_passengerCapacity} passengers.";
 	}
 
-	public virtual decimal CalculateRentalCost(Rental contract)
-	{
-		//TODO: Implement the rental cost calculation
-		return 0m;
-	}
+	public abstract decimal CalculateRentalCost(Rental contract);
+
 	#endregion
 }
