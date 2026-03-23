@@ -13,16 +13,16 @@ public struct Rental
 
     private DateTime _startDate;
     private DateTime _endDate;
-    private Vehicle _vehicle;
+    private IRentable _item;
     private decimal _price;
 
     #endregion
 
     #region Constructors
 
-    public Rental(Vehicle vehicle, DateTime startDate, DateTime endDate)
+    public Rental(IRentable item, DateTime startDate, DateTime endDate)
     {
-        _vehicle = vehicle;
+        _item = item;
         _startDate = startDate;
         _endDate = endDate;
         _price = 0m;
@@ -61,9 +61,9 @@ public struct Rental
         get { return _endDate - _startDate; }
     }
 
-    public Vehicle Vehicle
+    public IRentable Item
     {
-        get { return _vehicle; }
+        get { return _item; }
     }
 
 	#endregion
@@ -72,7 +72,7 @@ public struct Rental
 	public override string ToString()
 	{
         //TODO: include the price property in the string output
-        return $"{_vehicle.LicencePlate} rented for {this.Duration.Days} day(s), from {_startDate.ToShortDateString()} to {_endDate.ToShortDateString()} for {_price} CAD";
+        return $"{_item.Id} rented for {this.Duration.Days} day(s), from {_startDate.ToShortDateString()} to {_endDate.ToShortDateString()} for {_price} CAD";
 	}
     #endregion
 }

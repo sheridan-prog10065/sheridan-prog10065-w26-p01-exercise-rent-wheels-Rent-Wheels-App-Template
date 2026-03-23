@@ -7,7 +7,7 @@ public class SpeedyRentalShop
 { 
 	#region Fields
 
-	private ObservableCollection<Vehicle> _vehicleInventory;
+	private ObservableCollection<IRentable> _itemInventory;
 	private ObservableCollection<Rental> _rentalList;
 
 	#endregion
@@ -16,7 +16,7 @@ public class SpeedyRentalShop
 
 	public SpeedyRentalShop()
 	{
-		_vehicleInventory = new ObservableCollection<Vehicle>();
+		_itemInventory = new ObservableCollection<IRentable>();
 		_rentalList = new ObservableCollection<Rental>();
 		
 		//Create default vehicle
@@ -27,9 +27,9 @@ public class SpeedyRentalShop
 	
 	#region Properties
 
-	public ObservableCollection<Vehicle> Vehicles
+	public ObservableCollection<IRentable> Inventory
 	{
-		get { return _vehicleInventory; }
+		get { return _itemInventory; }
 	}
 
 	public ObservableCollection<Rental> Rentals
@@ -51,21 +51,21 @@ public class SpeedyRentalShop
 		carOne.Mileage = 10000;
 		carOne.PassengerCapacity = 5;
 		carOne.LicencePlate = "ABC 1234";
-		_vehicleInventory.Add(carOne);
+		_itemInventory.Add(carOne);
 
 		//Create second default vehicle and add to list
 		Vehicle luxaryCar = new Car("BMW");
 		luxaryCar.Mileage = 500;
 		luxaryCar.PassengerCapacity = 2;
 		luxaryCar.LicencePlate = "SPEED 1";
-		_vehicleInventory.Add(luxaryCar);
+		_itemInventory.Add(luxaryCar);
 
 		//Create third default vehicle and add to list
 		Vehicle familyCar = new Van("Honda Odyssey");
 		familyCar.Mileage = 17000;
 		familyCar.PassengerCapacity = 7;
 		familyCar.LicencePlate = "YMCA 123";
-		_vehicleInventory.Add(familyCar);
+		_itemInventory.Add(familyCar);
 	}
 
 	/// <summary>
@@ -99,14 +99,14 @@ public class SpeedyRentalShop
 	/// <summary>
 	/// Create a rental contract for the given vehicle with the period requested
 	/// </summary>
-	/// <param name="vehicle">vehicle to rent</param>
+	/// <param name="item">vehicle to rent</param>
 	/// <param name="startDate">start of the rental period</param>
 	/// <param name="endDate">end of the rental period</param>
 	/// <exception cref="NotImplementedException"></exception>
-	public Rental RentVehicle(Vehicle vehicle, DateTime startDate, DateTime endDate)
+	public Rental RentItem(IRentable item, DateTime startDate, DateTime endDate)
 	{
 		//Step 1: Obtain and validate the input (e.g. parameters or field variables)
-		if (vehicle == null)
+		if (item == null)
 		{
 			//TODO: throw an exception identifying an invalid contract
 		}
@@ -118,10 +118,10 @@ public class SpeedyRentalShop
 
 		//Step 2: Process the input (e.g. creating and keeping track of objects
 		//create the contract
-		Rental contract = new Rental(vehicle, startDate, endDate);
+		Rental contract = new Rental(item, startDate, endDate);
 
 		//calculate the price
-		decimal price = vehicle.CalculateRentalCost(contract); //this is a polymorphic method
+		decimal price = item.CalculateRentalCost(contract); //this is a polymorphic method
 
 		//record the price in the contract
 		contract.Price = price;

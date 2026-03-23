@@ -13,7 +13,7 @@ public partial class RentalPage : ContentPage
         InitializeComponent();
 
         //Connect the list of vehicles with the collection view to display the vehicle list
-        _lstVehicleInventory.ItemsSource = _rentalShop.Vehicles;
+        _lstVehicleInventory.ItemsSource = _rentalShop.Inventory;
         _lstRentals.ItemsSource = _rentalShop.Rentals;
         
     }
@@ -26,7 +26,7 @@ public partial class RentalPage : ContentPage
         Vehicle selectedVehicle = (Vehicle)_lstVehicleInventory.SelectedItem;
 
         //Process the user input to rent the selected vehicle
-        _rentalShop.RentVehicle(selectedVehicle, startDate, endDate);
+        _rentalShop.RentItem(selectedVehicle, startDate, endDate);
 
         //Confirm the rental to the user
         await DisplayAlertAsync("Speedy Rentals", $"Your {selectedVehicle.Make} will be ready on {startDate:D}", "OK");
