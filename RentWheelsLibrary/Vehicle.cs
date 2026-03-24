@@ -7,7 +7,7 @@ namespace RentWheelsLibrary;
 /// <summary>
 /// Represents a generic vehicle, the base class for all vehicle types supported by the app
 /// </summary>
-public abstract class Vehicle
+public abstract class Vehicle : IRentable
 {
 	#region Fields
 
@@ -52,15 +52,32 @@ public abstract class Vehicle
 		get { return _licensePlate; }
 		set { _licensePlate = value; }
 	}
+
+	//Implement the IRentable iterface properties
+
+	public string Id
+	{
+		get { return this.LicencePlate; }
+	}
+
+	public string Description
+	{ 
+		get { return $"{_make}: {_licensePlate} with {_mileage} km, and {_passengerCapacity} passengers."; }
+	}
 	#endregion
 
 	#region Methods
 
 	public override string ToString()
 	{
-		return $"{_make}: {_licensePlate} with {_mileage} km, and {_passengerCapacity} passengers.";
+		return this.Description;
 	}
 
+	/// <summary>
+	/// Implementation of IRentable interface method
+	/// </summary>
+	/// <param name="contract"></param>
+	/// <returns></returns>
 	public abstract decimal CalculateRentalCost(Rental contract);
 
 	#endregion
