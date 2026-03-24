@@ -16,7 +16,7 @@ public partial class VehicleInventoryPage : ContentPage
 		
 		//Bind the list of vehicles to the collection view AFTER it has been initialized
 		//by the InitiliateComponent() call above
-		_lstVehicleInventory.ItemsSource = rentalShop.Vehicles;
+		_lstVehicleInventory.ItemsSource = rentalShop.Items;
 	}
 
 	private void OnAddVehicle(object sender, EventArgs e)
@@ -35,7 +35,7 @@ public partial class VehicleInventoryPage : ContentPage
 		vehicle.LicencePlate = licensePlate;
 
 		//Add the vehicle objec to the vehicle inventory in the rental shop
-		_rentalShop.Vehicles.Add(vehicle);
+		_rentalShop.Items.Add(vehicle);
 	}
 
 	private void OnClear(object sender, EventArgs e)
