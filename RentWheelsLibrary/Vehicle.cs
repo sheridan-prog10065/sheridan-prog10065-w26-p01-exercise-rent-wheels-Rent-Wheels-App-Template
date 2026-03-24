@@ -7,7 +7,7 @@ namespace RentWheelsLibrary;
 /// <summary>
 /// Represents a generic vehicle, the base class for all vehicle types supported by the app
 /// </summary>
-public abstract class Vehicle : IRentable
+public abstract class Vehicle : IRentable //IS-A IRentable, implements IRentable
 {
 	#region Fields
 
