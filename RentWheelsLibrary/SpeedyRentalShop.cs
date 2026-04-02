@@ -78,21 +78,26 @@ public class SpeedyRentalShop
 	/// <returns></returns>
 	public Vehicle CreateVehicle(string vehicleType, string make)
 	{
+		//validate the vehicle type
+		if (string.IsNullOrWhiteSpace(vehicleType))
+		{
+			throw new ArgumentException("Please select a vehicle type to create a vehicle");
+		}
+		
 		//Check the vehicle type and create the correspohnding objecy
 		switch (vehicleType)
 		{
 			case "Car":
 				return new Car(make);
 
-			case "Truck":
-				return new Truck(make);
+			//TODO: add a case for Truck
 
 			case "Van":
 				return new Van(make);
 
 			default:
 				Debug.Assert(false, "Unknown vehicle type");
-				return null;
+				throw new ArgumentException("Unsupported vehicle type. Please select a vehicle of a different type. Vechile was not created."); 
 		}
 	}
 
@@ -107,12 +112,14 @@ public class SpeedyRentalShop
 		//Step 1: Obtain and validate the input (e.g. parameters or field variables)
 		if (item == null)
 		{
-			//TODO: throw an exception identifying an invalid contract
+			//throw an exception identifying an invalid contract
+			throw new ArgumentNullException("item", "The item required to rent is invalid. Please select an valid item.");
 		}
 
 		if (startDate < DateTime.Today || endDate <= startDate)
 		{
-			//TODO: throw an exception identifying an invalid contract
+			//throw an exception identifying an invalid contract
+			throw new ArgumentException("The dates for the rental contracts are not valid. Please select a valid rental period");
 		}
 
 		//Step 2: Process the input (e.g. creating and keeping track of objects
