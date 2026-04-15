@@ -39,24 +39,33 @@ public partial class VehicleInventoryPage : ContentPage
 			//Add the vehicle objec to the vehicle inventory in the rental shop
 			_rentalShop.Items.Add(vehicle);
 		}
+		catch (InvalidVehicleException ex)
+		{
+			await DisplayAlertAsync("Rent Wheels",
+				$"The vehicle information is incorrect.\n\n{ex.Message}",
+				"OK");
+		}
 		catch (ArgumentNullException ex)
 		{
-			await DisplayAlertAsync("Rent Wheels", $"Invalid vehicle information. Please review and enter the full vehicle information.\n\nError: {ex.Message}",
+			await DisplayAlertAsync("Rent Wheels",
+				$"Invalid vehicle information. Please review and enter the full vehicle information.\n\nError: {ex.Message}",
 				"OK");
 		}
 		catch (ArgumentException ex)
 		{
 			await DisplayAlertAsync("Rent Wheels", $"Invalid vehicle information.\n\nError: {ex.Message}",
-					"OK");
+				"OK");
 		}
 		catch (FormatException ex)
 		{
-			await DisplayAlertAsync("Rent Wheels", $"Cannot create vehicle. Please enter correct mileage and passenger capacity.\n\nError: {ex.Message}",
+			await DisplayAlertAsync("Rent Wheels",
+				$"Cannot create vehicle. Please enter correct mileage and passenger capacity.\n\nError: {ex.Message}",
 				"OK");
 		}
 		catch (Exception ex)
 		{
-			await DisplayAlertAsync("Rent Wheels", $"An error occurred while creating a vehicle.\n\nError: {ex.Message}",
+			await DisplayAlertAsync("Rent Wheels",
+				$"An error occurred while creating a vehicle.\n\nError: {ex.Message}",
 				"OK");
 		}
 	}

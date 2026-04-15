@@ -22,7 +22,7 @@ public abstract class Vehicle : IRentable //IS-A IRentable, implements IRentable
 	public Vehicle(string make)
 	{
 		_make = make;
-		_mileage = 0;
+		_mileage = -1;
 		_passengerCapacity = 0;
 		_licensePlate = "N/A";
 	}
@@ -32,25 +32,88 @@ public abstract class Vehicle : IRentable //IS-A IRentable, implements IRentable
 	public string Make
 	{
 		get { return _make; }
-		set { _make = value;}
+		set
+		{
+			//validate the input value
+			if (string.IsNullOrWhiteSpace(value))
+			{
+				throw new InvalidVehicleException("The vehicle make is empty. Cannot set the make of the vehicle");
+			}
+
+			_make = value;
+		}
 	}
 
 	public double Mileage
 	{
-		get { return _mileage; }
-		set { _mileage = value; }
+		get
+		{
+			if (_mileage <= 0)
+			{
+				throw new InvalidVehicleException("The mileage has not been set. Cannot return the vehicle mileage");
+			}
+
+			return _mileage;
+		}
+		set
+		{
+			//validate the new mileage value
+			if (value <= 0 || value < _mileage)
+			{
+				throw new InvalidVehicleException("New mileage is not valid. Cannot change the mileage of the vehicle");
+			}
+
+			_mileage = value;
+		}
 	}
 
 	public byte PassengerCapacity
 	{
-		get { return _passengerCapacity; }
-		set { _passengerCapacity = value; }
+		get
+		{
+			if (_passengerCapacity < 2)
+			{
+				throw new InvalidVehicleException(
+					"The passenger capacity has not been set. Cannot return the passenger capacity");
+			}
+
+			return _passengerCapacity;
+		}
+		set
+		{
+			if (value < 2)
+			{
+				throw new InvalidVehicleException("Cannot change the passenger capacity. Vehicle must have at least two passengers");
+			}
+
+			_passengerCapacity = value;
+		}
 	}
 
 	public string LicencePlate
 	{
-		get { return _licensePlate; }
-		set { _licensePlate = value; }
+		get
+		{
+			//Validate the license plate is not empty and it is not "N/A"
+			if (string.IsNullOrWhiteSpace(_licensePlate) || _licensePlate == "N/A")
+			{
+				throw new InvalidVehicleException(
+					"The license plate has not been set. Cannot return the license plate");
+			}
+
+			return _licensePlate;
+		}
+		set
+		{
+			//Validate the new value is not empty (or spaces), not "N/A", it has at least two characters and not more than 8
+			if (string.IsNullOrWhiteSpace(value) || value == "N/A" || value.Length < 2 || value.Length > 8)
+			{
+				throw new InvalidVehicleException(
+					"Invalid license plate value. License plate numbers must have between 2 and 8 characters and cannot be N/A. Cannot change the license plate number");
+			}
+
+			_licensePlate = value;
+		}
 	}
 
 	//Implement the IRentable iterface properties
