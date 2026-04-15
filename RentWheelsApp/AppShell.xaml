@@ -7,13 +7,13 @@
     Shell.FlyoutBehavior="Disabled">
 
     <TabBar>
-        <Tab Title="Vehicles" Icon="cars.svg">
+        <Tab Title="Vehicles" Icon="cars.png">
             <ShellContent
                 ContentTemplate="{DataTemplate local:VehicleInventoryPage}"
                 Route="VehicleInventoryPage" />
             
         </Tab>
-        <Tab Title="Rentals" Icon="rentals.svg">
+        <Tab Title="Rentals" Icon="rentals.png">
             <ShellContent
                 ContentTemplate="{DataTemplate local:RentalPage}"
                 Route="RentalPage" />
